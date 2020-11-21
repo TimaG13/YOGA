@@ -1,0 +1,541 @@
+@import "root"
+//reset
+*, *:before, *:after
+  box-sizing: border-box
+
+html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video
+  margin: 0
+  padding: 0
+  border: 0
+  font-size: 100%
+  font: inherit
+  vertical-align: baseline
+  text-rendering: optimizeLegibility
+  -webkit-font-smoothing: antialiased
+  text-size-adjust: none
+
+footer, header, nav, section, main
+  display: block
+
+body
+  line-height: 1
+
+ol, ul
+  list-style: none
+
+blockquote, q
+  quotes: none
+
+blockquote:before, blockquote:after, q:before, q:after
+  content: ''
+  content: none
+
+table
+  border-collapse: collapse
+  border-spacing: 0
+
+input
+  -webkit-appearance: none
+  border-radius: 0
+
+input,button
+  border: none
+  outline: none
+a
+  text-decoration: none
+  display: inline-block
+
+@font-face
+  font-family: 'Freestyle Script'
+  src: url('../fonts/FreestyleScript-Regular.woff2') format('woff2'),
+  url('../fonts/FreestyleScript-Regular.woff') format('woff')
+  font-weight: normal
+  font-style: normal
+
+@font-face
+  font-family: 'OpenSans'
+  src: url('../fonts/OpenSans-Regular.woff2') format('woff2'),
+  url('../fonts/OpenSans-Regular.woff') format('woff')
+  font-weight: normal
+  font-style: normal
+
+@font-face
+  font-family: 'OpenSans-Bold'
+  src: url('../fonts/OpenSans-Bold.woff2') format('woff2'),
+  url('../fonts/OpenSans-Bold.woff') format('woff')
+  font-weight: normal
+  font-style: normal
+
+@font-face
+  font-family: 'OpenSans-SemiBold'
+  src: url('../fonts/OpenSans-SemiBold.woff2') format('woff2'),
+  url('../fonts/OpenSans-SemiBold.woff') format('woff')
+  font-weight: normal
+  font-style: normal
+.text-uppercase
+  text-transform: uppercase
+.text-center
+  text-align: center
+h1,h2,h3
+  font-family: 'OpenSans-Bold',Arial,sans-serif
+body
+  font-family: 'OpenSans', sans-serif
+  font-size: $defaultSize
+  color: $colorPar
+p
+  line-height: 20px
+.header-sec, .sec-inform
+  position: relative
+  &:before,&:after
+    content: ''
+    position: absolute
+    display: block
+    left: 0
+    top: 0
+    bottom: 0
+    right: 0
+  &:before
+    background-repeat: no-repeat
+    background-position: center center
+    background-size: cover
+    z-index: -2
+  &:after
+    background: #5b6cebd1
+    z-index: -2
+.sec-inform:before
+  background-image: url("../img/bg-content.jpg")
+.header-sec:before
+  background-image: url("../img/bg-footer.png")
+.wrapp-bg
+  background: $colorPar
+  width: 100%
+header
+  max-width: 830px
+  padding: 10px 0
+  margin: 0 auto
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+  .nav-bar
+
+    li
+      display: inline-block
+
+      a
+        position: relative
+        font-family: 'OpenSans-Bold', sans-serif
+        font-weight: bold
+        color: #555555
+        margin: 15px
+        padding: 15px
+
+        &:before
+          content: ""
+          position: absolute
+          display: inline-block
+          width: 30px
+          height: 1px
+          background: #5363db
+          left: 50%
+          transform: translateX(-50%)
+          transition: all .3s ease-in
+          bottom: 8px
+          opacity: 0
+
+        &.active:before
+          opacity: 1
+
+        &:first-child
+          margin-left: 0
+
+        &:last-child
+          margin-right: 0
+
+        &:hover:before
+          opacity: 1
+  .wrapp-logo img
+    padding: 6px
+.wrapp-content
+  max-width: 1170px
+  margin: 0 auto
+  padding: 100px 10px 109px 265px
+.wrapp-form, .wrapp-text
+  display: inline-block
+  vertical-align: middle
+.wrapp-form
+  background: #ffffff
+  border-radius: 20px
+  padding: 40px 40px 35px 30px
+  box-shadow: 16px 5px 20px #54505042
+  margin-right: 87px
+
+  form
+    display: flex
+    flex-direction: column
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button
+      -webkit-appearance: none
+      margin: 0
+    input[type=number]
+      -moz-appearance: textfield
+    .wrapp-name,.wrapp-phone
+      position: relative
+      label
+        position: absolute
+        display: none
+        top: 0
+        left: 50%
+        transform: translateX(-50%)
+        font-size: 10px
+        color: #bf0000
+    span
+      font-family: 'OpenSans-SemiBold',sans-serif
+      font-weight: bold
+      color: #5363db
+      font-size: 26px
+      text-align: left
+    span,.select
+      margin-bottom: 30px
+    input
+      font-size: 16px
+      color: #888888
+      width: 230px
+      height: 50px
+      border-radius: 10px
+      background-color: #f2f2f2
+      padding: 18px 10px
+      margin-bottom: 17px
+      &:hover
+        background: #e6e6e6
+    input.submit
+      display: inline-block
+      font-family: 'OpenSans-Bold',sans-serif
+      font-weight: bold
+      font-size: 16px
+      color: #ffffff
+      max-width: 170px
+      margin: 0 0 0 auto
+      padding: 0
+      background: #5b6ceb
+      cursor: pointer
+.select-hidden
+  display: none
+  visibility: hidden
+  text-align: left
+  padding-right: 10px
+
+.select
+  cursor: pointer
+  display: inline-block
+  position: relative
+  font-size: 16px
+  color: #888888
+  width: 230px
+  height: 50px
+
+.select-styled
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  border-radius: 10px
+  text-align: left
+  background-color: #f2f2f2
+  padding: 18px 10px
+
+  &:after
+    content: ""
+    width: 10px
+    height: 5px
+    position: absolute
+    top: 50%
+    background: url("../img/Rectangle 2.png")
+    right: 10px
+    transform: translateY(-50%)
+    transition: all .4s
+  &:hover
+    background-color: #e6e6e6
+  &:active, &.active
+    background-color: #e6e6e6
+    &:after
+      transform: rotate(180deg)
+.select-options
+  display: none
+  position: absolute
+  top: 100%
+  right: 0
+  left: 0
+  z-index: 999
+  margin: 0
+  padding: 0
+  list-style: none
+  li
+    margin: 0
+    padding: 12px 0
+    text-indent: 15px
+    background-color: #e6e6e6
+    border-top: 1px solid #d5d5d5
+    border-radius: 10px
+    &:hover
+      background: #e6e6e6
+    &[rel="hide"]
+      display: none
+.wrapp-text
+  max-width: 500px
+  padding: 0 10px
+  h1
+    font-family: 'OpenSans-Bold',Arial,sans-serif
+    font-weight: bold
+    font-size: 48px
+    margin-bottom: 50px
+  p
+    max-width: 268px
+    font-family: 'Freestyle Script',sans-serif
+    font-size: 40px
+.program-sec
+  max-width: 1190px
+  margin: 0 auto
+  padding: 120px 0
+  .wrapp-title
+    margin-bottom: 75px
+    h2
+      color: $colorBlue
+      font-size: 30px
+      margin-bottom: 25px
+    span
+      font-family: 'Freestyle Script',Arial,sans-serif
+      font-size: 41px
+      color: #777777
+  .program-wrrapp
+    font-size: 0
+    .car-prog
+      max-width: 570px
+      display: inline-block
+      border-radius: 10px
+      overflow: hidden
+      text-align: left
+      margin: 13.5px
+      box-shadow: 6px 7px 16px -11px #a8a8a8
+      .wrapp-img
+        max-width: 270px
+        display: inline-block
+        img
+          width: 100%
+      .desc
+        display: inline-block
+        vertical-align: top
+        max-width: 295px
+        padding: 48px 25px
+        span
+          font-family: 'OpenSans-Bold',Arial,sans-serif
+          display: inline-block
+          font-size: 20px
+          color: #777777
+          margin-bottom: 35px
+        p
+          color: #555555
+          padding-right: 21px
+          margin-bottom: 15px
+          font-size: 14px
+        strong
+          color: #999999
+          font-size: 14px
+.gallery-sec
+  font-size: 0
+  .car-img
+    position: relative
+    display: inline-block
+    width: 25%
+    margin: -1px
+    cursor: pointer
+    &:after, &:before
+      content: ''
+      position: absolute
+      display: inline-block
+      opacity: 0
+      transition: all .2s ease-in
+    &:after
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      background: #5363dbd1
+      z-index: 0
+    &:before
+      content: url("../img/icon-search.png")
+      top: 50%
+      left: 50%
+      transform: translate(-50%,-50%)
+      width: 57px
+      height: 57px
+      background: #ffffff
+      display: flex
+      justify-content: center
+      align-items: center
+      border-radius: 50%
+      z-index: 1
+    &:hover:after, &:hover:before
+      opacity: 1
+    &:hover>img
+      filter: grayscale(100%)
+    img
+      width: 100%
+.about-sec
+  position: relative
+  max-width: 1180px
+  margin: 0 auto
+  padding: 115px 0
+  .wrapp-btn
+    position: absolute
+    top: 50%
+    right: 0
+    transform: translateY(-50%)
+    z-index: 1
+    &:last-child
+      right: -15px
+    &:first-child
+      right: 560px
+  button.slick-prev, button.slick-next
+    position: relative
+    color: transparent
+    background: $colorPar
+    width: 50px
+    height: 50px
+    border-radius: 50%
+    box-shadow: 6px 7px 30px -14px #6f6c6c
+    cursor: pointer
+  button.slick-prev, button.slick-next
+    &:before
+      content: ''
+      position: absolute
+      width: 12px
+      height: 19px
+      top: 50%
+      left: 50%
+      transform: translate(-50%,-50%)
+  button.slick-prev:before
+    background: url('../img/left-st.png')
+  button.slick-next:before
+    background: url('../img/right-st.png')
+  .about-car
+    outline: none
+    padding: 10px 10px
+    .desc
+      display: inline-block
+      max-width: 470px
+      vertical-align: top
+      padding: 25px 0
+      margin-right: 115px
+      h3
+        font-size: 30px
+        color: #5363db
+        margin-bottom: 27px
+      p
+        color: #555555
+    .wrapp-img
+      display: inline-block
+      vertical-align: top
+      max-width: 570px
+
+      img
+        width: 100%
+        border-radius: 10px
+        box-shadow: 6px 7px 17px -14px #6f6c6c
+.sec-inform
+  .wrapp-inf
+    max-width: 1180px
+    margin: 0 auto
+    padding: 125px 10px 85px
+    .car
+      max-width: 267px
+      display: inline-block
+      padding: 5px
+      margin: 0 10px 58px 10px
+      .img-wrapp
+        margin-bottom: 30px
+      .wrapp-des
+        .centric
+          max-width: 185px
+          height: 45px
+          margin: 0 auto 25px
+          span
+            display: inline-block
+            font-family: 'OpenSans-Bold',Arial,sans-serif
+            font-weight: bold
+            font-size: 18px
+        p
+          font-size: 16px
+.sec-prices
+  background: url("../img/bg-pr.png") no-repeat
+  background-position: bottom right
+  background-size: contain
+  .wrapp-prices
+    max-width: 1180px
+    margin: 0 auto
+    .wrapp-car
+      padding: 100px  10px
+      .car-prices
+        max-width: 370px
+        display: inline-block
+        margin: 0 16px
+        border-radius: 10px
+        overflow: hidden
+        box-shadow: 6px 7px 34px -11px #d6d6d6d6
+        background: #FFFFFF
+        .prce
+          padding: 50px 0
+          background: $colorBlue
+          span:first-child
+            font-size: 32px
+            margin-right: 20px
+            line-height: 67px
+            vertical-align: top
+          span:nth-child(2)
+            margin-right: 20px
+            font-size: 67px
+          span,strong
+            font-family: 'OpenSans-Bold',Arial,sans-serif
+            font-weight: bold
+          strong
+            position: relative
+            font-size: 18px
+            &:before
+              content: ''
+              position: absolute
+              top: 50%
+              transform: translateY(-50%) rotate(25deg)
+              left: -10px
+              background: $colorPar
+              width: 3px
+              height: 15px
+
+        .prices-services
+          padding: 50px 70px
+          li
+            position: relative
+            margin-bottom: 50px
+            &:before
+              content: ''
+              position: absolute
+              left: 50%
+              transform: translateX(-50%)
+              bottom: -25px
+              width: 99px
+              height: 1px
+              background: #d7d7d7
+            p
+              font-size: 18px
+              color: #555555
+          a.btn-buy
+            display: block
+            margin: 0 auto
+            max-width: 170px
+            font-family: 'OpenSans-SemiBold',Arial,sans-serif
+            font-weight: bold
+            font-size: 18px
+            color: $colorPar
+            padding: 17px 47px
+            border-radius: 20px
+            background: $colorBlue
