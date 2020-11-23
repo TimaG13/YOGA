@@ -76,6 +76,7 @@ $(document).ready(function () {
             slidesToShow: 1,
             slidesToScroll: 1,
             arrows: false,
+            dots: true,
             fade: true,
             asNavFor: '.slider-nav'
         });
@@ -83,11 +84,67 @@ $(document).ready(function () {
             slidesToShow: 1,
             slidesToScroll: 1,
             asNavFor: '.slider-for',
-            dots: true,
-            centerMode: true,
+            dots: false,
+            variableWidth: true,
             focusOnSelect: true
         });
     })
+    //hover effect price mouseout
+    $(function () {
+        $('.car-prices').mouseover(function (e) {
+            if (e.target.className === 'btn-buy') {
+                $(this).addClass('active')
+            }else {
+                $(this).removeClass('active')
+            }
+        })
+    })
+    //fix header
+    $(function() {
+        menu_top = $('.wrapp-bg').offset().top;
+        const headHeight = $('.wrapp-bg').height()
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > menu_top) {
+                if ($('.wrapp-bg').css('position') != 'fixed') {
+                    $('.heder2').width(100 + '%');
+                    $('.heder2').height(headHeight);
+                    $('.wrapp-bg').css('position','fixed');
+                    $('.wrapp-bg').css('top','0');
+                }
+            } else {
+                if ($('.wrapp-bg').css('position') == 'fixed') {
+                    $('.wrapp-bg').css('position','');
+                    $('.wrapp-bg').css('top','');
+                }
+            }
+        });
+    });
+    //scroll
+    $(function() {
+        $("#menu").on("click","a", function (event) {
+            event.preventDefault();
+            var id  = $(this).attr('href'),
+                top = $(id).offset().top;
+            $('body,html').animate({scrollTop: top - 100 }, 1500);
+        });
+    });
+    //menu activ
+    $(window).scroll(function(){
+        var $sections = $('.anchor');
+        $sections.each(function(i,el){
+            var top  = $(el).offset().top - 200;
+            var bottom = top +$(el).height();
+            var scroll = $(window).scrollTop();
+            var id = $(el).attr('id');
+            if( scroll > top && scroll < bottom){
+                $('#menu a.active').removeClass('active');
+                $('#menu a[href="#'+id+'"]').addClass('active');
+            }if( scroll < top && scroll > bottom){
+                $('#menu a.active').removeClass('active')
+            }
+        })
+    });
+
 
 });
 

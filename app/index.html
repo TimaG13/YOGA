@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Yoga</title>
     <link rel="stylesheet" href="css/magnific-popup.css">
     <link rel="stylesheet" type="text/css" href="css/slick.css"/>
@@ -11,13 +11,14 @@
 <body>
 <main>
     <section class="header-sec">
-        <div class="wrapp-bg">
-            <header>
+        <div class="heder2">
+            <div class="wrapp-bg">
+            <header id="menu">
                 <div class="nav-bar right-nav">
                     <ul>
-                        <li><a href="#" class="nav-link active">About us</a></li>
-                        <li><a href="#" class="nav-link">Reservation</a></li>
-                        <li><a href="#" class="nav-link">Gallery</a></li>
+                        <li><a href="#about" class="nav-link active">About us</a></li>
+                        <li><a href="#reserv" class="nav-link">Reservation</a></li>
+                        <li><a href="#gallery" class="nav-link">Gallery</a></li>
                     </ul>
                 </div>
                 <div class="wrapp-logo">
@@ -27,14 +28,15 @@
                 </div>
                 <div class="nav-bar left-nav">
                     <ul>
-                        <li><a href="#" class="nav-link">Blog</a></li>
-                        <li><a href="#" class="nav-link">Elements</a></li>
-                        <li><a href="#" class="nav-link">Shop</a></li>
+                        <li><a href="#blog" class="nav-link">Blog</a></li>
+                        <li><a href="#elements" class="nav-link">Elements</a></li>
+                        <li><a href="#shop" class="nav-link">Shop</a></li>
                     </ul>
                 </div>
             </header>
         </div>
-        <div class="wrapp-content">
+        </div>
+        <div id="reserv" class="wrapp-content anchor">
             <div class="wrapp-form">
                 <form id="formInf" action="">
                     <span>Trial Class </span>
@@ -111,7 +113,7 @@
             </div>
         </div>
     </section>
-    <section class="gallery-sec">
+    <section id="gallery" class="gallery-sec anchor text-center">
         <a href="img/gallery1.jpg" class="car-img image-link">
             <img src="img/gallery1.jpg" alt="gallery">
         </a>
@@ -137,7 +139,7 @@
             <img src="img/gallery8.jpg" alt="gallery">
         </a>
     </section>
-    <section class="about-sec">
+    <section id="about" class="about-sec anchor">
         <div class="single-item-rtl">
             <div class="about-car">
                 <div class="desc">
@@ -165,7 +167,7 @@
             </div>
         </div>
     </section>
-    <section class="sec-inform text-center">
+    <section id="elements" class="sec-inform text-center anchor">
         <div class="wrapp-inf">
             <div class="car">
                 <div class="img-wrapp">
@@ -267,7 +269,7 @@
     </section>
     <section class="sec-prices">
         <div class="wrapp-prices">
-            <div class="wrapp-car">
+            <div id="shop" class="wrapp-car anchor">
                 <div class="car-prices">
                     <div class="prce text-center">
                         <span>$</span>
@@ -314,18 +316,159 @@
                     </div>
                 </div>
             </div>
-            <div class="slider-for">
-                <div><img src="img/slider1.png"></div>
-                <div><img src="img/gallery2.jpg"></div>
-                <div><img src="img/gallery5.jpg"></div>
+            <div id="blog" class="slider-for anchor">
+                <div class="box-slider">
+                    <div class="avatar">
+                        <img src="img/avatar1.png" alt="avatar">
+                    </div>
+                    <div class="desc">
+                        <p>1Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation toui
+                            ullamcomi laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <span>Trainer</span>
+                        <strong>Laura Shepard</strong>
+                    </div>
+                </div>
+                <div class="box-slider">
+                    <div class="avatar">
+                        <img src="img/avatar1.png" alt="avatar">
+                    </div>
+                    <div class="desc">
+                        <p>2Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation toui
+                            ullamcomi laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <span>Trainer</span>
+                        <strong>Laura Shepard</strong>
+                    </div>
+                </div>
+                <div class="box-slider">
+                    <div class="avatar">
+                        <img src="img/avatar1.png" alt="avatar">
+                    </div>
+                    <div class="desc">
+                        <p>3Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation toui
+                            ullamcomi laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <span>Trainer</span>
+                        <strong>Laura Shepard</strong>
+                    </div>
+                </div>
+                <div class="box-slider">
+                    <div class="avatar">
+                        <img src="img/avatar1.png" alt="avatar">
+                    </div>
+                    <div class="desc">
+                        <p>4Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation toui
+                            ullamcomi laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <span>Trainer</span>
+                        <strong>Laura Shepard</strong>
+                    </div>
+                </div>
             </div>
             <div class="slider-nav">
-                <div><img src="img/logo.png" alt=""></div>
-                <div><img src="img/icon-search.png" alt=""></div>
-                <div><img src="img/left-st.png" alt=""></div>
+                <div class="fo-avatar">
+                    <div class="box-img">
+                        <img src="img/manBox.png" alt="Avatar">
+                    </div>
+                    <div class="name">
+                        <span>Sara Taylor</span>
+                        <strong>Trainer</strong>
+                    </div>
+                </div>
+                <div class="fo-avatar">
+                    <div class="box-img">
+                        <img src="img/manBox.png" alt="Avatar">
+                    </div>
+                    <div class="name">
+                        <span>2Sara Taylor</span>
+                        <strong>Trainer</strong>
+                    </div>
+                </div>
+                <div class="fo-avatar">
+                    <div class="box-img">
+                        <img src="img/manBox.png" alt="Avatar">
+                    </div>
+                    <div class="name">
+                        <span>3Sara Taylor</span>
+                        <strong>Trainer</strong>
+                    </div>
+                </div>
+                <div class="fo-avatar">
+                    <div class="box-img">
+                        <img src="img/manBox.png" alt="Avatar">
+                    </div>
+                    <div class="name">
+                        <span>4Sara Taylor</span>
+                        <strong>Trainer</strong>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+    <footer>
+        <div class="body-footer">
+            <div class="box-about">
+                <span class="text-uppercase">About</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad m inim veniam, quis nostrud exercitation toui ullamcomi laboris
+                    nisi ut aliquip ex ea commodo consequat.</p>
+                <ul class="wrapp-soc">
+                    <li><a class="soc link-pinterest" href="#"><img src="img/pinterest-outlined-logo.png"
+                                                                    alt="pinterest"></a></li>
+                    <li><a class="soc link-twitter" href="#"><img src="img/twitter-social-outlined-logo.png"
+                                                                  alt="twitter"></a></li>
+                    <li><a class="soc link-facebook" href="#"><img src="img/facebook-logo-outline.png"
+                                                                   alt="facebook"></a></li>
+                    <li><a class="soc link-google-plus" href="#"><img
+                            src="img/google-plus-outlined-logo-social-symbol.png" alt="google-plus"></a></li>
+                    <li><a class="soc link-instagram" href="#"><img src="img/instagram-social-outlined-logo.png"
+                                                                    alt="instagram"></a></li>
+                </ul>
+            </div>
+            <div class="box-contact">
+                <span class="text-uppercase">CONTACT US</span>
+                <ul class="wrapp-cont">
+                    <li>
+                        <i class="icon icon-placeholder">
+                            <img src="img/placeholder.png" alt="placeholder">
+                        </i>
+                        <div class="wrapp-link">
+                            <a class="placeholder" href="#">5419 Joseph Mountains Apt. 716</a>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="icon icon-envelope">
+                            <img src="img/envelope.png" alt="envelope">
+                        </i>
+                        <div class="wrapp-link">
+                            <a class="envelope" href="#">joga.info@example.com</a>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="icon icon-phone-call">
+                            <img src="img/phone-call.png" alt="phone-call">
+                        </i>
+                        <div class="wrapp-link">
+                            <a class="phone-call" href="#">+1 234 567 89</a>
+                            <a class="phone-call" href="#">+1 234 678 90</a>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="icon icon-planet-earth">
+                            <img src="img/planet-earth.png" alt="planet-earth">
+                        </i>
+                        <div class="wrapp-link">
+                            <a class="planet-earth" href="#">www.example.com</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="link-company text-center">
+            <a href="#">Copyright © 2016-2017 Yoga classes</a>
+        </div>
+    </footer>
 </main>
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery.magnific-popup.min.js"></script>

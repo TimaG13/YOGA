@@ -72,6 +72,12 @@ a
   url('../fonts/OpenSans-SemiBold.woff') format('woff')
   font-weight: normal
   font-style: normal
+@font-face
+  font-family: 'OpenSans-italic'
+  src: url('../fonts/OpenSans-Italic.woff2') format('woff2'),
+  url('../fonts/OpenSans-Italic.woff') format('woff')
+  font-weight: normal
+  font-style: italic
 .text-uppercase
   text-transform: uppercase
 .text-center
@@ -82,6 +88,8 @@ body
   font-family: 'OpenSans', sans-serif
   font-size: $defaultSize
   color: $colorPar
+main
+  overflow: hidden
 p
   line-height: 20px
 .header-sec, .sec-inform
@@ -109,6 +117,9 @@ p
 .wrapp-bg
   background: $colorPar
   width: 100%
+  transition: .2s ease-in-out
+  transition-delay: .2s
+  z-index: 99999
 header
   max-width: 830px
   padding: 10px 0
@@ -129,7 +140,8 @@ header
         color: #555555
         margin: 15px
         padding: 15px
-
+        &.active
+          color: #5363db
         &:before
           content: ""
           position: absolute
@@ -382,6 +394,31 @@ header
       filter: grayscale(100%)
     img
       width: 100%
+button.slick-prev, button.slick-next
+  position: relative
+  color: transparent
+  background: $colorPar
+  width: 50px
+  height: 50px
+  border-radius: 50%
+  box-shadow: 6px 7px 30px -14px #6f6c6c
+  cursor: pointer
+button.slick-prev, button.slick-next
+  &:before
+    content: ''
+    position: absolute
+    width: 12px
+    height: 19px
+    transform: translate(-50%,-50%)
+button.slick-prev:before
+  background: url('../img/left-st.png')
+button.slick-next:before
+  background: url('../img/right-st.png')
+button.slick-prev, button.slick-next
+  &:before
+    top: 50%
+    left: 50%
+    transform: translate(-50%,-50%)
 .about-sec
   position: relative
   max-width: 1180px
@@ -397,28 +434,6 @@ header
       right: -15px
     &:first-child
       right: 560px
-  button.slick-prev, button.slick-next
-    position: relative
-    color: transparent
-    background: $colorPar
-    width: 50px
-    height: 50px
-    border-radius: 50%
-    box-shadow: 6px 7px 30px -14px #6f6c6c
-    cursor: pointer
-  button.slick-prev, button.slick-next
-    &:before
-      content: ''
-      position: absolute
-      width: 12px
-      height: 19px
-      top: 50%
-      left: 50%
-      transform: translate(-50%,-50%)
-  button.slick-prev:before
-    background: url('../img/left-st.png')
-  button.slick-next:before
-    background: url('../img/right-st.png')
   .about-car
     outline: none
     padding: 10px 10px
@@ -472,19 +487,25 @@ header
   background-position: bottom right
   background-size: contain
   .wrapp-prices
-    max-width: 1180px
+    max-width: 1170px
     margin: 0 auto
+    padding-bottom: 165px
     .wrapp-car
-      padding: 100px  10px
+      padding: 100px  0
       .car-prices
         max-width: 370px
         display: inline-block
-        margin: 0 16px
+        margin: 0 19px
         border-radius: 10px
         overflow: hidden
         box-shadow: 6px 7px 34px -11px #d6d6d6d6
         background: #FFFFFF
+        &:first-child
+          margin-left: 0
+        &:last-child
+          margin-right: 0
         .prce
+          position: relative
           padding: 50px 0
           background: $colorBlue
           span:first-child
@@ -496,8 +517,10 @@ header
             margin-right: 20px
             font-size: 67px
           span,strong
+            position: relative
             font-family: 'OpenSans-Bold',Arial,sans-serif
             font-weight: bold
+            z-index: 1
           strong
             position: relative
             font-size: 18px
@@ -510,9 +533,8 @@ header
               background: $colorPar
               width: 3px
               height: 15px
-
         .prices-services
-          padding: 50px 70px
+          padding: 50px 75px
           li
             position: relative
             margin-bottom: 50px
@@ -539,3 +561,229 @@ header
             padding: 17px 47px
             border-radius: 20px
             background: $colorBlue
+            transition: all .3s ease-in
+            white-space: nowrap
+
+.prce
+  &:before, &:after
+    content: ''
+    position: absolute
+    display: inline-block
+    left: 0
+    bottom: 0
+    background: #0912db
+    z-index: 0
+    transition: all .4s ease-in-out
+    width: 0
+    height: 0
+  &:after
+    height: 3px
+  &:before
+    width: 100%
+.car-prices.active .prce
+  &:before
+    height: 100%
+    transition-delay: .3s
+  &:after
+    width: 100%
+.sec-prices .wrapp-prices .wrapp-car .car-prices .prices-services a.btn-buy:hover
+  background: #0912db
+.box-slider, .slick-active, .slick-slide
+  outline: none
+.slider-for
+  position: relative
+  padding: 38px 165px 38px 62px
+  box-shadow: 6px 7px 34px -11px #d6d6d6d6
+  background: #FFFFFF
+  border-radius: 10px
+  .avatar, .desc
+    display: inline-block
+  .avatar
+    border: 3px solid #dfdfdf
+    border-radius: 50%
+    overflow: hidden
+    margin-right: 90px
+    img
+      border: 10px solid #FFFFFF
+      object-fit: cover
+  .desc
+    position: relative
+    max-width: 670px
+    vertical-align: top
+    &:before
+      content: ''
+      position: absolute
+      display: inline-block
+      left: -45px
+      bottom: 0
+      width: 2px
+      height: 75px
+      background: #d7d7d7
+    p
+      position: relative
+      font-family: 'OpenSans-italic', Arial, Serif
+      color: #555555
+      margin-bottom: 35px
+      &:before, &:after
+        content: ''
+        position: absolute
+        display: inline-block
+        width: 21px
+        height: 15px
+        background-size: cover
+      &:before
+        top: 0
+        left: -51px
+        background: url("../img/t“.png") no-repeat
+      &:after
+        background: url("../img/b”.png") no-repeat
+        bottom: -15px
+        right: -30px
+    span, strong
+      display: block
+    span
+      color: #777777
+      margin-bottom: 10px
+    strong
+      font-family: 'OpenSans-Bold',Arial
+      font-weight: bold
+      color: #5b6ceb
+      font-size: 16px
+  .slick-dots
+    position: absolute
+    right: -45px
+    top: 50%
+    transform: translateY(-50%)
+    li
+      display: flex
+      justify-content: center
+      align-items: center
+      margin: 9px 0
+      width: 18px
+      height: 18px
+      border-radius: 50%
+      border: solid 2px #d6d6d6
+      cursor: pointer
+      &:first-child
+        margin: 0 0 9px 0
+      &:last-child
+        margin: 9px 0 0 0
+      button
+        color: transparent
+        width: 10px
+        height: 10px
+        margin: 0
+        padding: 0
+        border-radius: 50%
+        background: transparent
+      &.slick-active
+        border-color: $colorBlue
+        button
+          background: $colorBlue
+.slider-nav
+  position: relative
+  width: 280px
+  margin-left: 300px
+  top: -37px
+  padding: 0 60px
+  .slick-prev, .slick-next
+    position: absolute
+    width: 30px
+    height: 30px
+    top: 50%
+    transform: translateY(-50%)
+    color: transparent
+    &:after, &:before
+      width: 7px
+      height: 11px
+      background-size: cover
+  .slick-prev
+    left: 0
+  .slick-next
+    right: 0
+  .box-img, .name
+    display: inline-block
+    vertical-align: middle
+  .box-img
+    margin-right: 10px
+    margin-left: 2px
+    border-radius: 50%
+    border: solid 4px #d9d9d9
+    overflow: hidden
+    img
+      border-radius: 50%
+      border: solid 3px #ffffff
+  .name
+    max-width: 85px
+    span
+      display: block
+      font-family: 'OpenSans-Bold',Arial,SansSerif
+      font-weight: bold
+      color: #555555
+      margin-bottom: 10px
+    strong
+      font-size: 12px
+      color: #777777
+footer
+  background: $colorBlue
+  .body-footer
+    max-width: 1180px
+    margin: 0 auto
+    padding: 100px 5px
+    font-size: 0
+    .box-about, .box-contact
+      display: inline-block
+      width: 50%
+      font-size: 14px
+      vertical-align: top
+      &>span
+        display: block
+        font-family: 'OpenSans-Bold',Arial,SansSerif
+        font-weight: bold
+        font-size: 18px
+        margin-bottom: 55px
+    .box-about
+      p
+        max-width: 465px
+        margin-bottom: 65px
+      ul.wrapp-soc
+        margin-left: -5px
+        li
+          display: inline-block
+          width: 30px
+          height: 30px
+          a.soc
+            display: flex
+            justify-content: center
+            align-items: center
+    .box-contact
+     ul.wrapp-cont
+       font-size: 0
+       li
+         display: inline-block
+         position: relative
+         font-size: 14px
+         padding: 0 75px 0 0
+         width: 50%
+         vertical-align: top
+         min-height: 50px
+         margin-bottom: 20px
+         .wrapp-link
+           display: inline-block
+           max-width: 160px
+           a
+             line-height: 25px
+             color: $colorPar
+         i.icon
+           vertical-align: top
+           display: inline-block
+           margin-right: 20px
+           margin-top: 6px
+  .link-company
+    padding: 40px 0
+    background: #5363d8
+    a
+      font-size: 16px
+      color: #b7bffc
+
+@import "media"
