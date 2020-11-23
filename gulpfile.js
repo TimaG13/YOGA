@@ -2,10 +2,8 @@ const gulp         = require('gulp'),
       server       = require('gulp-server-livereload'),
       sass         = require('gulp-sass'),
       prefix       = require('gulp-autoprefixer'),
-      useref       = require('gulp-useref'),
-      gulpif       = require('gulp-if'),
-      uglify       = require('gulp-uglify'),
-      minifyCss    = require('gulp-csso'),
+      concat       = require('gulp-concat'),
+      uglify       = require('gulp-uglify-es').default,
       sourcemaps   = require('gulp-sourcemaps');
 
 
@@ -26,22 +24,39 @@ gulp.task('styles', function () {
         .pipe(prefix({
             browsers: ['last 2 versions']
         }))
+        .pipe(sass({outputStyle: 'compressed'}))
+        .pipe(concat('style.min.css'))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('app/css'));
 });
-
+// js
+gulp.task("script", function() {
+    return gulp.src([
+        'node_modules/jquery/dist/jquery.js',
+        'app/js/jquery.magnific-popup.min.js',
+        'app/js/slick.min.js',
+        'app/sass/js/script.js'
+    ])
+        .pipe(concat('app.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('app/js'));
+});
 // build
 gulp.task('build', function () {
-    return gulp.src('app/*.html')
-        .pipe(useref())
-        .pipe(gulpif('*.js', uglify()))
-        .pipe(gulpif('*.css', minifyCss()))
+    return gulp.src([
+        'app/*.html',
+        'app/js/app.min.js',
+        'app/css/*.css',
+        'app/img/*',
+        'app/fonts/*'
+    ],{base: 'app'})
         .pipe(gulp.dest('public'));
 });
 
 // watch
 gulp.task('watch', function() {
     gulp.watch('app/sass/**/*.sass', gulp.parallel('styles'));
+    gulp.watch('app/sass/js/**/*.js', gulp.parallel('script'));
 });
 
 gulp.task('default', gulp.parallel('webserver','watch'));

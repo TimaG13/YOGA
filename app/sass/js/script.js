@@ -1,7 +1,6 @@
 $(document).ready(function () {
     $('#mounth').each(function () {
         var $this = $(this), numberOfOptions = $(this).children('option').length;
-
         $this.addClass('select-hidden');
         $this.wrap('<div class="select"></div>');
         $this.after('<div class="select-styled"></div>');
@@ -12,14 +11,12 @@ $(document).ready(function () {
         var $list = $('<ul />', {
             'class': 'select-options'
         }).insertAfter($styledSelect);
-
         for (var i = 0; i < numberOfOptions; i++) {
             $('<li />', {
                 text: $this.children('option').eq(i).text(),
                 rel: $this.children('option').eq(i).val()
             }).appendTo($list);
         }
-
         var $listItems = $list.children('li');
 
         $styledSelect.click(function (e) {
